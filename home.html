@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=HK+Grotesk&display=swap" rel="stylesheet">
     <style>
+        
         body {
             margin: 0;
             padding: 0;
@@ -36,6 +37,7 @@
             width: 150px;
         }
 
+
         .title {
             font-size: 8rem;
             font-weight: bold;
@@ -43,16 +45,26 @@
             font-style: italic;
         }
 
-        .button {
+        .button,
+        .catalogo .produto button {
             background-color: yellow;
-            color: black;
-            font-weight: bold;
+            color: rgb(0, 0, 0);
+            font-weight: bolder;
             padding: 15px 30px;
             border: none;
             cursor: pointer;
             font-size: 1.2rem;
-            margin-top: 20px;
-            font-family: 'HK Grotesk', sans-serif;
+            font-family: sans-serif;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover,
+        .catalogo .produto button:hover {
+            transform: scale(1.05);
+            background-color: #fff200;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .quem-somos {
@@ -112,6 +124,15 @@
             border-radius: 10px;
         }
 
+        .quem-somos .images img {
+            transition: all 0.3s ease;
+        }
+
+        .quem-somos .images img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
         .o-que-oferecemos {
             background-color: #111;
             color: white;
@@ -145,10 +166,21 @@
             margin-top: 40px;
         }
 
+
         .o-que-oferecemos .servico {
             flex: 1 1 250px;
             text-align: center;
         }
+
+        .o-que-oferecemos .servico img {
+            transition: all 0.3s ease;
+        }
+
+        .o-que-oferecemos .servico img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
 
         .o-que-oferecemos .servico img {
             width: 100%;
@@ -370,14 +402,14 @@
                 <img src="produto1.png" alt="Bala - Love">
                 <h2>Bala - Love</h2>
                 <p>Explosão de morango e paixão! Perfeita para noites especiais com o crush, intensifica a conexão e
-                    deixa lembranças inesquecíveis. Experimente e faça acontecer!</p>
+                    deixa lembranças inesquecíveis. Experimente e faça acontecer!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
                 <button>ADQUIRA JÁ</button>
             </div>
             <div class="produto">
                 <img src="produto2.png" alt="ET - Blast">
                 <h2>ET - Blast</h2>
                 <p>Um sabor de outro planeta! Refrescante e misterioso, ET Blast desperta os sentidos e te transporta
-                    para uma experiência fora deste mundo. Atreva-se a provar e sinta a conexão intergaláctica!</p>
+                    para uma experiência fora deste mundo. Atreva-se a provar e sinta a conexão intergaláctica!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
                 <button>ADQUIRA JÁ</button>
             </div>
             <div class="produto">
@@ -385,7 +417,7 @@
                 <h2>StarTrip</h2>
                 <p>Sabor cítrico e uma vibe de outro universo! Com um toque especial que te leva a uma viagem
                     inesquecível, StarTrip ilumina suas noites e faz cada momento brilhar. Experimente e embarque nessa
-                    jornada de sabor!</p>
+                    jornada de sabor!ㅤㅤㅤㅤ</p>
                 <button>ADQUIRA JÁ</button>
             </div>
         </div>
@@ -399,7 +431,7 @@
             <h1>ONLINE É</h1>
             <h1>FÁCIL... ATÉ</h1>
             <h1>TUDO SAIR DO</h1>
-            <h1>CONTROLE</h1>
+            <h1>CONTROLE!</h1>
         </div>
         <div class="footer">
             <p>ABRAÇO DO M1000</p>

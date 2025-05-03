@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyDrugs - Seja Seu Melhor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=HK+Grotesk&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('..img/home.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Anton', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 20px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 150px;
+        }
+
+
+        .title {
+            font-size: 8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .button,
+        .catalogo .produto button {
+            background-color: yellow;
+            color: rgb(0, 0, 0);
+            font-weight: bolder;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-family: sans-serif;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover,
+        .catalogo .produto button:hover {
+            transform: scale(1.05);
+            background-color: #fff200;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .quem-somos {
+            background-color: #111;
+            color: white;
+            padding: 50px 20px;
+            font-family: 'HK Grotesk', sans-serif;
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quem-somos .text {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .quem-somos h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: yellow;
+        }
+
+        .quem-somos h1 span {
+            color: #e600ff;
+        }
+
+        .quem-somos p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .quem-somos a {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+        }
+
+        .quem-somos .images {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .quem-somos .images img {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .quem-somos .images img {
+            transition: all 0.3s ease;
+        }
+
+        .quem-somos .images img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .o-que-oferecemos {
+            background-color: #111;
+            color: white;
+            padding: 50px 20px;
+            font-family: 'HK Grotesk', sans-serif;
+            text-align: center;
+        }
+
+        .o-que-oferecemos h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: yellow;
+        }
+
+        .o-que-oferecemos h1 span {
+            color: #e600ff;
+        }
+
+        .o-que-oferecemos p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .o-que-oferecemos .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+
+        .o-que-oferecemos .servico {
+            flex: 1 1 250px;
+            text-align: center;
+        }
+
+        .o-que-oferecemos .servico img {
+            transition: all 0.3s ease;
+        }
+
+        .o-que-oferecemos .servico img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+
+        .o-que-oferecemos .servico img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .catalogo {
+            background-color: #111;
+            color: white;
+            padding: 50px 20px;
+            font-family: 'HK Grotesk', sans-serif;
+            text-align: center;
+        }
+
+        .catalogo h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: yellow;
+            margin-bottom: 50px;
+        }
+
+        .catalogo .produtos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .catalogo .produto {
+            flex: 1 1 300px;
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .catalogo .produto img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .catalogo .produto h2 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
+
+        .catalogo .produto p {
+            font-size: 1.1rem;
+        }
+
+        .catalogo .produto button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: yellow;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nova-secao {
+            background-image: url('img/tchau.jpg');
+            background-size: cover;
+            background-position: center;
+            color: yellow;
+            font-family: 'Anton', sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            padding: 20px;
+        }
+
+        .nova-secao h1 {
+            font-size: 3rem;
+            margin: 10px 0;
+            font-style: italic;
+            text-shadow:
+                -1px -1px 0 #e600ff,
+                1px -1px 0 #e600ff,
+                -1px 1px 0 #e600ff,
+                1px 1px 0 #e600ff;
+        }
+
+        .nova-secao .content {
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .nova-secao h1 {
+            font-size: 3rem;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .nova-secao .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: yellow;
+            color: black;
+            padding: 30px 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .nova-secao .footer p {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+                padding: 0 10px;
+            }
+
+            .quem-somos,
+            .o-que-oferecemos,
+            .catalogo {
+                padding: 30px 15px;
+                flex-direction: column;
+            }
+
+            .quem-somos .images img,
+            .o-que-oferecemos .servico img,
+            .catalogo .produto img {
+                width: 100%;
+                height: auto;
+            }
+
+            .catalogo .produto {
+                flex: 1 1 100%;
+            }
+
+            .logo {
+                width: 80px;
+                top: 10px;
+                left: 10px;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .nova-secao h1 {
+                font-size: 1.8rem;
+            }
+
+            .nova-secao .content {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="img/Logo.png" alt="Logo MyDrugs" class="logo">
+        <div class="title">SEJA SEU MELHOR</div>
+        <a href="#quem-somos">
+            <button class="button">VAMOS NOS DIVERTIR?</button>
+        </a>
+    </div>
+
+    <div id="quem-somos" class="quem-somos">
+        <div class="text">
+            <h1><span>MY</span>DRUGS</h1>
+            <p>Inspirada na série da Netflix <i>How to Sell Drugs Online (Fast)</i>, nossa loja oferece um sistema de
+                compras totalmente anônimo e seguro. Aqui, a privacidade e a segurança são nossa prioridade. Trabalhamos
+                incansavelmente para proporcionar a melhor experiência para os nossos clientes, sempre com o compromisso
+                de garantir que você se sinta confortável e protegido durante todo o processo de compra. Somos
+                apaixonados por oferecer produtos de qualidade, em um ambiente digital 100% seguro e discreto. E aí,
+                vamos entrar nessa vibe e descobrir o que temos para você?</p>
+        </div>
+        <div class="images">
+            <img src="img/foto01.jpg" alt="Imagem de conceito">
+            <img src="img/foto02.webp" alt="Imagem representativa">
+        </div>
+    </div>
+
+    <div class="o-que-oferecemos">
+        <div class="text">
+            <h1>O QUE <span>OFERECEMOS</span></h1>
+            <p>Estamos empenhados em trazer a melhor experiência.</p>
+        </div>
+        <div class="images">
+            <div class="servico">
+                <img src="img/variedade.jpeg" alt="Variedade de Balas">
+                <p>Variedade</p>
+            </div>
+            <div class="servico">
+                <img src="img/qualidade.webp" alt="Qualidade">
+                <p>Qualidade</p>
+            </div>
+            <div class="servico">
+                <img src="img/entrega.jpg" alt="Entrega Segura e Anônima">
+                <p>Entrega segura e anônima</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="catalogo">
+        <h1>NOSSO CATÁLOGO</h1>
+        <div class="produtos">
+            <div class="produto">
+                <img src="img/produto1.png" alt="Bala - Love">
+                <h2>Bala - Love</h2>
+                <p>Explosão de morango e paixão! Perfeita para noites especiais com o crush, intensifica a conexão e
+                    deixa lembranças inesquecíveis. Experimente e faça acontecer!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
+                <a href="love.html">
+                    <button>ADQUIRA JÁ</button>
+                </a>
+
+            </div>
+            <div class="produto">
+                <img src="img/produto2.png" alt="ET - Blast">
+                <h2>ET - Blast</h2>
+                <p>Um sabor de outro planeta! Refrescante e misterioso, ET Blast desperta os sentidos e te transporta
+                    para uma experiência fora deste mundo. Atreva-se a provar e sinta a conexão
+                    intergaláctica!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
+                <a href="etblast.html">
+                    <button>ADQUIRA JÁ</button>
+                </a>
+
+            </div>
+            <div class="produto">
+                <img src="img/produto3.png" alt="StarTrip">
+                <h2>StarTrip</h2>
+                <p>Sabor cítrico e uma vibe de outro universo! Com um toque especial que te leva a uma viagem
+                    inesquecível, StarTrip ilumina suas noites e faz cada momento brilhar. Experimente e embarque nessa
+                    jornada de sabor!ㅤㅤㅤㅤ</p>
+                <a href="star.html">
+                    <button>ADQUIRA JÁ</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <section class="nova-secao">
+        <div class="content">
+            <h1>VENDER</h1>
+            <h1>DROGAS</h1>
+            <h1>ONLINE É</h1>
+            <h1>FÁCIL... ATÉ</h1>
+            <h1>TUDO SAIR DO</h1>
+            <h1>CONTROLE!</h1>
+        </div>
+        <div class="footer">
+            <p>ABRAÇO DO M1000</p>
+        </div>
+    </section>
+</body>
+<!-- 
+  ███╗   ███╗ █████╗ ████████╗██╗  ██╗███████╗██╗   ██╗███████╗
+  ████╗ ████║██╔══██╗╚══██╔══╝██║  ██║██╔════╝██║   ██║██╔════╝
+  ██╔████╔██║███████║   ██║   ███████║█████╗  ██║   ██║███████╗
+  ██║╚██╔╝██║██╔══██║   ██║   ██╔══██║██╔══╝  ██║   ██║╚════██║
+  ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║███████╗╚██████╔╝███████║
+  ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
+
+  🕷️ Código assinado por: Matheus  
+  💊 Se você encontrou isso, você é dos nossos.  
+  -->
+
+</html>

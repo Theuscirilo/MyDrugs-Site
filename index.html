@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyDrugs</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&family=Montserrat:wght@300;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+    }
+
+    .image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .image-container::before {
+      content: "";
+      position: absolute;
+      width: calc(100% + 30px);
+      height: calc(100% + 30px);
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255, 255, 0, 0.6), 0 0 50px rgba(255, 255, 0, 0.3);
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .text-container {
+      text-align: left;
+      max-width: 500px;
+      padding-left: 50px;
+    }
+
+    .text-container h1 {
+      font-size: 60px;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    .text-container h1 span {
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #aaa;
+      letter-spacing: 3px;
+      padding-left: 5px;
+      margin: 0;
+      padding-top: 5px;
+    }
+
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .arrow {
+      width: 40px;
+    }
+
+    .custom-button {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .custom-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+    }
+
+    .text-container p {
+      font-size: 14px;
+      color: white;
+    }
+
+    .text-container p span {
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        padding: 30px 15px;
+        align-items: stretch;
+      }
+
+      .container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .text-container {
+        text-align: center;
+        padding-left: 0;
+        max-width: 100%;
+      }
+
+      .image-container img {
+        max-width: 250px;
+      }
+
+      .text-container h1 {
+        font-size: 40px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        padding-left: 0;
+        padding-top: 10px;
+      }
+
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .arrow {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="img/Logo.png" alt="MyDrugs" />
+    </div>
+    <div class="text-container">
+      <h1>My<span>Drugs</span></h1>
+      <p class="subtitle">A diversão em primeiro lugar</p>
+      <div class="button-container">
+        <p><span>Vamos</span> nos divertir juntos?</p>
+        <img src="img/seta.png" alt="Seta" class="arrow" />
+        <a href="home.html" class="custom-button">Acesse já</a>
+      </div>
+    </div>
+  </div>
+  <!-- 
+  ███╗   ███╗ █████╗ ████████╗██╗  ██╗███████╗██╗   ██╗███████╗
+  ████╗ ████║██╔══██╗╚══██╔══╝██║  ██║██╔════╝██║   ██║██╔════╝
+  ██╔████╔██║███████║   ██║   ███████║█████╗  ██║   ██║███████╗
+  ██║╚██╔╝██║██╔══██║   ██║   ██╔══██║██╔══╝  ██║   ██║╚════██║
+  ██║ ╚═╝ ██║██║  ██║   ██║   ██║  ██║███████╗╚██████╔╝███████║
+  ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
+
+  🕷️ Código assinado por: Matheus  
+  💊 Se você encontrou isso, você é dos nossos.  
+  -->
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ET Blast | MyDrugs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=HK+Grotesk&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: 'HK Grotesk', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 30px 20px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      width: 120px;
+      margin-top: 20px;
+    }
+
+    h1 {
+      color: yellow;
+      font-family: 'Anton', sans-serif;
+      font-size: 3rem;
+      margin: 20px 0;
+    }
+
+    .produto-img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 20px;
+      margin: 20px 0;
+      animation: zoomIn 1s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    .button {
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      animation: bounceIn 1s ease;
+    }
+
+    .button:hover {
+      background-color: #fff200;
+      transform: scale(1.05);
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .voltar {
+      display: inline-block;
+      margin-top: 40px;
+      color: yellow;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .carrinho {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100%;
+      background-color: #222;
+      color: white;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      transition: right 0.4s ease;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .carrinho.aberto {
+      right: 0;
+    }
+
+    .carrinho h2 {
+      margin-top: 0;
+      color: yellow;
+      font-family: 'Anton', sans-serif;
+    }
+
+    .produto {
+      margin: 20px 0;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+    }
+
+    .produto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .quantidade {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    .quantidade button {
+      background-color: yellow;
+      border: none;
+      padding: 5px 10px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .finalizar {
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      padding: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .fechar-carrinho {
+      background: none;
+      border: none;
+      color: yellow;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-bottom: 10px;
+      text-align: right;
+      width: 100%;
+    }
+
+    .total {
+      font-weight: bold;
+      margin-top: 20px;
+      color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="img/Logo.png" alt="Logo MyDrugs" class="logo" />
+    <h1>ET Blast</h1>
+    <img src="img/produto2.png" alt="ET Blast" class="produto-img" />
+    <p>
+      Uma explosão cósmica de sabores! O ET Blast é feito para quem busca novas dimensões de prazer, com uma fórmula alienígena que te leva para outro planeta. Sinta o impacto!
+    </p>
+    <button class="button" onclick="adicionarAoCarrinho('ET Blast', 'img/produto2.png', 149.90)">ADQUIRA JÁ</button>
+    <br />
+    <a href="home.html" class="voltar">← Voltar para o catálogo</a>
+  </div>
+
+  <div class="carrinho" id="carrinho">
+    <button class="fechar-carrinho" onclick="fecharCarrinho()">✕ Fechar</button>
+    <h2>Seu Carrinho</h2>
+    <div id="lista-carrinho"></div>
+    <div class="total" id="total">Total: R$ 0,00</div>
+    <button class="finalizar">Finalizar Compra</button>
+  </div>
+
+  <script>
+    let carrinho = [];
+
+    function abrirCarrinho() {
+      document.getElementById("carrinho").classList.add("aberto");
+    }
+
+    function fecharCarrinho() {
+      document.getElementById("carrinho").classList.remove("aberto");
+    }
+
+    function adicionarAoCarrinho(nome, imagem, preco) {
+      const existente = carrinho.find(p => p.nome === nome);
+      if (existente) {
+        existente.qtd++;
+      } else {
+        carrinho.push({ nome, imagem, preco, qtd: 1 });
+      }
+      renderizarCarrinho();
+      abrirCarrinho();
+    }
+
+    function alterarQuantidade(nome, delta) {
+      const produto = carrinho.find(p => p.nome === nome);
+      if (produto) {
+        produto.qtd += delta;
+        if (produto.qtd <= 0) {
+          carrinho = carrinho.filter(p => p.nome !== nome);
+        }
+      }
+      renderizarCarrinho();
+    }
+
+    function renderizarCarrinho() {
+      const lista = document.getElementById("lista-carrinho");
+      lista.innerHTML = "";
+      let total = 0;
+
+      carrinho.forEach(produto => {
+        total += produto.preco * produto.qtd;
+
+        lista.innerHTML += `
+          <div class="produto">
+            <img src="${produto.imagem}" alt="${produto.nome}">
+            <p><strong>${produto.nome}</strong></p>
+            <p>Preço: R$ ${produto.preco.toFixed(2)}</p>
+            <div class="quantidade">
+              <button onclick="alterarQuantidade('${produto.nome}', -1)">-</button>
+              <span>${produto.qtd}</span>
+              <button onclick="alterarQuantidade('${produto.nome}', 1)">+</button>
+            </div>
+          </div>
+        `;
+      });
+
+      document.getElementById("total").textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
